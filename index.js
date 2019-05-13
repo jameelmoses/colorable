@@ -52,6 +52,7 @@ module.exports = function(colors, options) {
     result.hex = color.hexString();
     if (color.name) { result.name = color.name; }
     result.combinations = [];
+    result.labelColor = getLabelColor(color.hexString());
     arr.forEach(function(bg) {
       if (color === bg) { return false; }
       var combination = options.compact ? {} : _.clone(bg);
@@ -64,7 +65,6 @@ module.exports = function(colors, options) {
         aaa: combination.contrast >= minimums.aaa,
         aaaLarge: combination.contrast >= minimums.aaaLarge,
       };
-      combination.labelColor = getLabelColor(bg.hexString());
       if (combination.contrast > options.threshold) {
         result.combinations.push(combination);
       }
