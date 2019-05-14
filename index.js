@@ -59,12 +59,14 @@ module.exports = function(colors, options) {
       combination.hex = bg.hexString();
       if (bg.name) { combination.name = bg.name; }
       combination.contrast = color.contrast(bg);
-      combination.accessibility = {
-        aa: combination.contrast >= minimums.aa,
-        aaLarge: combination.contrast >= minimums.aaLarge,
-        aaa: combination.contrast >= minimums.aaa,
-        aaaLarge: combination.contrast >= minimums.aaaLarge,
-      };
+      combination.accessibility = "Fail";
+      if (combination.contrast >= 7.0) {
+        combination.accessibility = "Fail"; = "AAA";
+      } else if (combination.contrast >= 4.5) {
+        combination.accessibility = "Fail"; = "AA";
+      } else if (combination.contrast >= 3.0) {
+        combination.accessibility = "Fail"; = "AA18";
+      }
       if (combination.contrast > options.threshold) {
         result.combinations.push(combination);
       }
