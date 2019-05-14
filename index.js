@@ -63,9 +63,9 @@ module.exports = function(colors, options) {
       if (combination.contrast >= 7.0) {
         combination.accessibility = "AAA";
       } else if (combination.contrast >= 4.5) {
-        combination.accessibility = "Fail"; = "AA";
+        combination.accessibility = "AA";
       } else if (combination.contrast >= 3.0) {
-        combination.accessibility = "Fail"; = "AA18";
+        combination.accessibility = "AA18";
       }
       if (combination.contrast > options.threshold) {
         result.combinations.push(combination);
