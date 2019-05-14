@@ -61,7 +61,7 @@ module.exports = function(colors, options) {
       combination.contrast = color.contrast(bg);
       combination.accessibility = "Fail";
       if (combination.contrast >= 7.0) {
-        combination.accessibility = "Fail"; = "AAA";
+        combination.accessibility = "AAA";
       } else if (combination.contrast >= 4.5) {
         combination.accessibility = "Fail"; = "AA";
       } else if (combination.contrast >= 3.0) {
